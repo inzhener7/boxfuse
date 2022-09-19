@@ -1,9 +1,8 @@
-FROM tomcat:9
+FROM tomcat:9.0.65-jdk11-temurin
 
 RUN apt update && \
     apt install -y maven && \
     apt install -y git && \
-    apt install -y default-jdk && \
     mkdir -p ./build
 
 WORKDIR /build
