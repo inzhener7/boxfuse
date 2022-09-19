@@ -9,8 +9,7 @@ RUN apt update && \
 WORKDIR /build
 
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git && \
-    cd boxfuse-sample-java-war-hello/ && \
-    mvn package && \
-    cp ./target/hello-1.0.war /var/lib/tomcat9/webapps/
+    mvn package -f boxfuse-sample-java-war-hello/pom.xml && \
+    mv boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/hello.war
 
 EXPOSE 8080
